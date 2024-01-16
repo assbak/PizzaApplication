@@ -1,0 +1,40 @@
+﻿@model PizzaViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Pizza</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PizzaName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PizzaName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Pate.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Pate.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IngredientNames)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IngredientNames)
+        </dd>
+        <dd class="col-sm-10">
+            @*Affichage d'une base64 en HTML*@
+            <img src="@string.Format($"data:image/*;base64,{Model.ImageBase64}")" />
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.PizzaId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
